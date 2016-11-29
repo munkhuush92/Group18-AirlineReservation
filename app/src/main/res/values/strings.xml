@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Group18-AirlineReservation</string>
+    <string name="radio_oneway">One-way</string>
+    <string name="radio_trip">RoundTrip</string>
 </resources>
