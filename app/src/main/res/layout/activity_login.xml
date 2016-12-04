@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="uw.group18_airlinereservation.LoginActivity">
+    <EditText
+        style="@style/EditTextStyle"
+        android:id="@+id/emailField"
+        android:hint="Enter your email"
+        />
+
+    <EditText
+        style="@style/EditPasswordStyle"
+        android:id="@+id/passwordField"
+        android:hint="Enter your password" />
+
+    <Button
+        style="@style/uw_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:onClick="loginButtonPress"/>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have an account? Register down below."/>
+
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="5dp"/>
+
+    <Button
+        style="@style/clear_button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:onClick="registerButtonPress"/>
+</LinearLayout>
