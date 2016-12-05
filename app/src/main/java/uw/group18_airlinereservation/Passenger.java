@@ -8,10 +8,10 @@ import java.io.Serializable;
 public class Passenger {
     private static final Passenger instance = new Passenger();
 
-    public String myPassID;
-    public String myEmail;
-    public String myFirstName;
-    public String myLastName;
+    public String myPassID = "NOT SET";
+    public String myEmail = "NOT SET";
+    public String myFirstName = "NOT SET";
+    public String myLastName = "NOT SET";
 
     /**
      * private constructor of passenger

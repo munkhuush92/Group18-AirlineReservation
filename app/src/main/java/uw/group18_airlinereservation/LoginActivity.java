@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String LOGIN_URL
             = "http://students.washington.edu/adi1996/airline.php?cmd=login";
-    public static Passenger myPassenger;
+    private Passenger myPassenger;
     public static boolean loggedIn = false;
 
     private EditText myEmailField;
@@ -67,6 +67,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void registerButtonPress(View v) {
         Toast.makeText(v.getContext(), "Not yet implemented!", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
+        startActivity(intent);
     }
 
     /**
