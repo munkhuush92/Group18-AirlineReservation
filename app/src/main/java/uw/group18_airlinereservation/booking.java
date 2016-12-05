@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -66,7 +69,7 @@ public class booking extends AppCompatActivity {
     /** DO-TO   */
     String depDateString;
     String arrDateString;
-
+    Spinner myFlightsSpinner;
 
 
     /** Address of the server  */
@@ -98,6 +101,9 @@ public class booking extends AppCompatActivity {
         retSpinnerYear.setEnabled(false);
 
 
+        //myFlightsSpinner = (Spinner) findViewById(R.id.flightsSpinner);
+
+
         addListenerOnButton();
         /** initiliaze list views with full of flight options
          *
@@ -109,9 +115,6 @@ public class booking extends AppCompatActivity {
         toTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextViewTO);
         fromTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextViewFROM);
         updateJson();
-
-
-
 
     }
 
@@ -161,16 +164,23 @@ public class booking extends AppCompatActivity {
                 jsonObject = myJsonArr.getJSONObject(i);
 
                 if(jsonObject.getString("dep").equals(depString) && jsonObject.getString("arr").equals(arrString)) {
-                    String fullText = "" + jsonObject.getString("airplanename") +"/Departs From: "+ depString + "/Dep Date: " +
-                            jsonObject.getString("deptime").substring(5,16)+"/Arrive To: "+arrString+"/Arrival Date: "
-                            +jsonObject.getString("arrtime").substring(5,16)+"/ Price: "+jsonObject.getString("price").substring(0,5)+"$" ;
+                    if(depDateString.equals(jsonObject.getString("deptime").substring(5, 10))) {
+                        String fullText = "" + jsonObject.getString("airplanename") + "/Departs From: " + depString + "/Dep Date: " +
+                                jsonObject.getString("deptime").substring(5, 16) + "/Arrive To: " + arrString + "/Arrival Date: "
+                                + jsonObject.getString("arrtime").substring(5, 16) + "/ Price: " + jsonObject.getString("price").substring(0, 5) + "$";
 
-                    myJsonDatas[i] = fullText;
+                        myJsonDatas[i] = fullText;
+
+                    }else{
+                        myJsonDatas[i] = "NO FLIGHTS";
+                    }
+
                 }else {
                     myJsonDatas[i] = "";
                 }
 
             }
+            System.out.println(myJsonArr.length());
         }catch(Exception e){
             e.printStackTrace();
 
@@ -204,21 +214,25 @@ public class booking extends AppCompatActivity {
                 depString = fromTextView.getText().toString();
 
                 arrString= toTextView.getText().toString();
-                depDateString = depSpinnerDay.getSelectedItem().toString() + " / "+ depSpinnerMonth.getSelectedItem().toString()
-                        +" "+ depSpinnerYear.getSelectedItem().toString();
+                String dayData = depSpinnerDay.getSelectedItem().toString();
+                if(dayData.length()!=1){
+                    depDateString = depSpinnerMonth.getSelectedItem().toString() + "-"+ depSpinnerDay.getSelectedItem().toString();
+                    System.out.println("2digit");
+                }else{
+                    System.out.println("1digit");
+                    depDateString = depSpinnerMonth.getSelectedItem().toString() + "-0"+ depSpinnerDay.getSelectedItem().toString();
+                }
 
                 updateJson();
+
                 myBookFlights.setAdapter(myAdapter);
 
             }
         });
 
-
-
+        /** TEST DELETE */
 
     }
-
-
 
 
 
