@@ -29,7 +29,9 @@
 
     </RadioGroup>
 
-
+<LinearLayout
+    android:layout_width="400dp"
+    android:layout_height="40dp">
     <CheckedTextView
         android:text="From"
         android:layout_width="200dp"
@@ -37,12 +39,36 @@
         android:id="@+id/fromTextView"
         android:layout_gravity="center_horizontal"
         android:checked="true"/>
-    <CheckedTextView
-        android:text="To"
-        android:layout_width="200dp"
-        android:layout_height="30dp"
-        android:id="@+id/toTextView"
-        android:layout_gravity="center_horizontal"/>
+
+    <AutoCompleteTextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/autoCompleteTextViewFROM"
+        android:layout_weight="1" />
+
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="40dp">
+        <CheckedTextView
+            android:text="To"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:id="@+id/tochecktextView"
+            android:layout_gravity="center_horizontal"
+            android:checked="true"/>
+        <AutoCompleteTextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/autoCompleteTextViewTO"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
+
     <TextView
         android:text="Departure"
         android:layout_width="wrap_content"
@@ -53,17 +79,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-    <Spinner
-        android:layout_width="96dp"
-        android:layout_height="38dp"
-        android:id="@+id/daysSpinner"
-        android:entries="@array/days"/>
+        <Spinner
+            android:layout_width="96dp"
+            android:layout_height="38dp"
+            android:id="@+id/daysSpinner"
+            android:entries="@array/days"/>
 
-    <Spinner
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/monthsSpinner"
-        android:entries="@array/months"/>
+        <Spinner
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/monthsSpinner"
+            android:entries="@array/months"/>
         <Spinner
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -100,7 +126,18 @@
             android:id="@+id/yearsSpinner2"
             android:entries="@array/years"/>
 
+
+
+
     </LinearLayout>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editText" />
 
     <Button
         android:text="Search"
@@ -108,39 +145,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/searchButton" />
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/radioGroupFlights">
-
-
-
-
-
-    <RadioButton
-        android:text="Flight:DE777 Date:1/1/2016 Departs: 830PM Arrives: 10:30Am "
+    <ListView
+        android:id="@+id/listViewflights"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/flight1" />
-
-    <RadioButton
-        android:text="Flight:AA347 Date:1/1/2016 Departs: 930PM Arrives: 10:30Am"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/flight2" />
-
-    <RadioButton
-        android:text="Flight:KR377 Date:1/1/2016 Departs: 830PM Arrives: 10:30Am"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/flight3" />
-
-    <RadioButton
-        android:text="Flight:SE123 Date:1/1/2016 Departs: 830PM Arrives: 10:30Am"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/flight4" />
-    </RadioGroup>
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>
