@@ -166,13 +166,13 @@ public class booking extends AppCompatActivity {
                             +jsonObject.getString("arrtime").substring(5,16)+"/ Price: "+jsonObject.getString("price").substring(0,5)+"$" ;
 
                     myJsonDatas[i] = fullText;
-               }else {
+                }else {
                     myJsonDatas[i] = "";
                 }
 
             }
         }catch(Exception e){
-                e.printStackTrace();
+            e.printStackTrace();
 
         }
     }
@@ -201,13 +201,13 @@ public class booking extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               depString = fromTextView.getText().toString();
+                depString = fromTextView.getText().toString();
 
                 arrString= toTextView.getText().toString();
                 depDateString = depSpinnerDay.getSelectedItem().toString() + " / "+ depSpinnerMonth.getSelectedItem().toString()
-                                        +" "+ depSpinnerYear.getSelectedItem().toString();
+                        +" "+ depSpinnerYear.getSelectedItem().toString();
 
-                 updateJson();
+                updateJson();
                 myBookFlights.setAdapter(myAdapter);
 
             }
