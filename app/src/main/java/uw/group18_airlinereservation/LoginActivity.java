@@ -34,7 +34,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        if(!loggedIn) {
+        if(loggedIn) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
             myEmailField = (EditText) findViewById(R.id.emailField);
             myPasswordField = (EditText) findViewById(R.id.passwordField);
         }
@@ -76,8 +80,10 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 JSONObject json = new JSONObject(jsonString);
                 if(!json.has("loggedin")) {
-                    Passenger myPassenger = new Passenger(json.getString("PassID")
-                            , json.getString("Email"));
+                    Passenger.setValues(json.getString("PassID"),
+                            json.getString("Email"), json.getString("Fname"),
+                            json.getString("Lname"));
+                    Passenger myPassenger = Passenger.getPassengerObject();
                     loggedIn = true;
                 } else {
                     loggedIn = false;
