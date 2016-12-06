@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class Passenger {
     private static final Passenger instance = new Passenger();
-
+    //default fields
     public String myPassID = "NOT SET";
     public String myEmail = "NOT SET";
     public String myFirstName = "NOT SET";

@@ -13,8 +13,7 @@
     <EditText
         style="@style/EditTextStyle"
         android:id="@+id/emailField"
-        android:hint="Enter your Email"
-        />
+        android:hint="Enter your Email" />
 
     <EditText
         style="@style/EditPasswordStyle"

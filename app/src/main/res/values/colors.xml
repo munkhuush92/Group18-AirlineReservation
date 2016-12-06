@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!-- University of Washington official colors! -->
     <color name="uwPurple">#4b2e83</color>
     <color name="uwGold">#e8e3d3</color>
     <color name="uwMetallicGold">#85754d</color>

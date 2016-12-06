@@ -19,6 +19,7 @@ public class DatePickerDialogFragment extends DialogFragment implements DatePick
 
     public DatePickerDialogFragment() {
         // Required empty public constructor
+        //nothing happens here!
     }
 
     @Override

@@ -50,4 +50,5 @@
         <item name="android:background">?android:attr/listDivider</item>
         <item name="android:color">@color/uwPurple</item>
     </style>
+
 </resources>

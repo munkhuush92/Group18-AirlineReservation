@@ -15,21 +15,19 @@
         android:layout_height="wrap_content"
         android:text="Enter your account information:"
         android:textSize="14sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
     <EditText
         style="@style/EditTextStyle"
         android:textSize="14sp"
         android:id="@+id/emailField"
         android:hint="Valid Email"
         android:maxLength="254"/>
-
     <EditText
         style="@style/EditPasswordStyle"
         android:textSize="14sp"
         android:id="@+id/passwordField"
         android:hint="Choose a Password"
         android:maxLength="30"/>
-
     <EditText
         style="@style/EditPasswordStyle"
         android:textSize="14sp"

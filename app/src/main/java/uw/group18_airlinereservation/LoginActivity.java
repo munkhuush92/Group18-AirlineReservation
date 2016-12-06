@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String LOGIN_URL
             = "http://students.washington.edu/adi1996/airline.php?cmd=login";
     private Passenger myPassenger;
-    public static boolean loggedIn = false;
+    public static boolean loggedIn = false; //used for when user backs out of main activity
 
     private EditText myEmailField;
     private EditText myPasswordField;

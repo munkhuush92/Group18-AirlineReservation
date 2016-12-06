@@ -2,4 +2,5 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/clear_button_pressed_shape" android:state_pressed="true" />
     <item android:drawable="@drawable/clear_button_shape" />
+
 </selector>

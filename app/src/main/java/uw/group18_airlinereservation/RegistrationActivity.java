@@ -25,7 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private String REGISTER =
             "http://students.washington.edu/adi1996/airline.php?cmd=register_passenger";
-
+    //so many fields!
     public static TextView myBirthDate;
     private TextView myEmail;
     private TextView myPassword;

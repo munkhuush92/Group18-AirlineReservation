@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     /** A button for directing to Booking layout*/
      Button bookButton;
 
-    private TextView myLoginStatus;
+    private TextView myLoginStatus; //displays who you're logged in as
 
     public void init(){
         bookButton = (Button) findViewById(R.id.bookButton);

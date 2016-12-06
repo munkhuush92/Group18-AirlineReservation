@@ -66,6 +66,7 @@
         <item>KR229</item>
         <item>SA333</item>
     </string-array>
+    <!-- gender strings -->
     <string name="choose_gender">Gender:</string>
     <string-array name="gender">
         <item>X</item>
