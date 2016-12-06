@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_booking"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="uw.group18_airlinereservation.BookingActivity">
+    <LinearLayout style="@style/LinearLayoutStyle">
+        <TextView
+            style="@style/DescriptorTextStyle"
+            android:text="Available Flights:        " />
+        <Spinner
+            android:id="@+id/flight_spinner"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:prompt="@string/choose_flight" />
+    </LinearLayout>
+    <LinearLayout style="@style/LinearLayoutStyle">
+        <TextView
+            style="@style/DescriptorTextStyle"
+            android:text="Meal Plan:                " />
+        <EditText
+            style="@style/EditInformationStyle"
+            android:id="@+id/mealPlanField"
+            android:maxLength="30"
+            android:hint="Apples, Peanuts, Grilled Cheese..."/>
+    </LinearLayout>
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="10dp"/>
+    <View style="@style/Divider"/>
+    <Space
+        android:layout_width="1dp"
+        android:layout_height="10dp"/>
+    <LinearLayout style="@style/LinearLayoutStyle" >
+        <TextView
+            style="@style/DescriptorTextStyle"
+            android:textSize="30sp"
+            android:text="Price:"/>
+        <TextView
+            style="@style/DescriptorTextStyle"
+            android:id="@+id/priceField"
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:textSize="30sp"
+            android:text="$20.00"/>
+    </LinearLayout>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <Button
+        style="@style/clear_button"
+        android:text="Complete Reservation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="completeReservationButtonPress"/>
+</LinearLayout>

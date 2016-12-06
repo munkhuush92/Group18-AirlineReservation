@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent initialize = new Intent(MainActivity.this, booking.class);
                 startActivity(initialize);
-
             }
         });
         myLoginStatus = (TextView) findViewById(R.id.loginStatus);
@@ -36,5 +35,10 @@ public class MainActivity extends AppCompatActivity {
         myLoginStatus.setText("You are logged in as " +
                 aPassenger.getFirstName() + " " +
                 aPassenger.getLastName() + ".");
+    }
+
+    public void bookFlightButtonPress(View v) {
+        Intent initialize = new Intent(MainActivity.this, BookingActivity.class);
+        startActivity(initialize);
     }
 }
