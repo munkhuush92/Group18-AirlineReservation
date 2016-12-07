@@ -40,12 +40,10 @@
         android:layout_gravity="center_horizontal"
         android:checked="true"/>
 
-    <AutoCompleteTextView
-        android:text=""
-        android:layout_width="wrap_content"
+    <Spinner
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/autoCompleteTextViewFROM"
-        android:layout_weight="1" />
+        android:id="@+id/spinnerlocations" />
 
 </LinearLayout>
     <LinearLayout
@@ -58,12 +56,10 @@
             android:id="@+id/tochecktextView"
             android:layout_gravity="center_horizontal"
             android:checked="true"/>
-        <AutoCompleteTextView
-            android:text=""
-            android:layout_width="wrap_content"
+        <Spinner
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/autoCompleteTextViewTO"
-            android:layout_weight="1" />
+            android:id="@+id/spinnerarrlocations" />
 
     </LinearLayout>
 
@@ -140,15 +136,20 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-    <ListView
-        android:id="@+id/listViewflights"
-        android:layout_width="match_parent"
-        android:layout_height="180dp" />
+
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/flightsSpinner" />
+
+    <Button
+        android:text="Book Selected Flight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bookflightButton" />
+
+
 
 
 </LinearLayout>
