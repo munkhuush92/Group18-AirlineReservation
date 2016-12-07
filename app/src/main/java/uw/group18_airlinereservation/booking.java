@@ -63,8 +63,6 @@ public class booking extends AppCompatActivity {
     String arrString;
     /** DO-TO   */
     String depDateString;
-    String arrDateString;
-    private boolean isRoundTrip = false;
     Spinner myFlightsSpinner;
     /** Address of the server  */
     String myurl = "http://students.washington.edu/adi1996/airline.php?cmd=all_flights";
@@ -74,7 +72,6 @@ public class booking extends AppCompatActivity {
     String myLine = null;
     /** the result of converted string from the database */
     String result;
-    Button mybookaddButton;
     // ListView myBookFlights;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,22 +142,7 @@ public class booking extends AppCompatActivity {
                 //if one way, then we choose this code
                 if(jsonObject.getString("dep").equals(depString) && jsonObject.getString("arr").equals(arrString)) {
                     if(depDateString.equals(jsonObject.getString("deptime").substring(5, 10))) {
-//                        if(isRoundTrip) {
-//                            if(arrDateString.equals(jsonObject.getString("arrtime").substring(5, 10))) {
-//                                //if it is roundtrip
-//                                String fullText = "" + jsonObject.getString("airplanename") + "/Departs From: " + depString + "/Dep Date: " +
-//                                        jsonObject.getString("deptime").substring(5, 16) + "/Arrive To: " + arrString + "/Arrival Date: "
-//                                        + jsonObject.getString("arrtime").substring(5, 16) + "/ Price: " + jsonObject.getString("price").substring(0, 5) + "$";
-//
-//                                myJsonDatas[i] = fullText;
-//                                myDepLocations[i] = jsonObject.getString("dep");
-//                                myArrLocations[i] = jsonObject.getString("arr");
-//                            }else{
-//                                myJsonDatas[i] = "NO FLIGHTS";
-//                                myDepLocations[i]= jsonObject.getString("dep");
-//                                myArrLocations[i] = jsonObject.getString("arr");
-//                            }
-//                        }else{
+
                         //if it is roundtrip
                         String fullText = "" + jsonObject.getString("airplanename") + "/Departs From: " + depString + "/Dep Date: " +
                                 jsonObject.getString("deptime").substring(5, 16) + "/Arrive To: " + arrString + "/Arrival Date: "
@@ -195,14 +177,14 @@ public class booking extends AppCompatActivity {
                 retSpinnerDay.setEnabled(false);
                 retSpinnerMonth.setEnabled(false);
                 retSpinnerYear.setEnabled(false);
-                isRoundTrip = false;
+
             }
         });
         myTripButton = (RadioButton) findViewById(R.id.radioTrip);
         myTripButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                isRoundTrip = true;
+
                 retSpinnerDay.setEnabled(true);
                 retSpinnerMonth.setEnabled(true);
                 retSpinnerYear.setEnabled(true);
@@ -218,23 +200,13 @@ public class booking extends AppCompatActivity {
                 String dayData = depSpinnerDay.getSelectedItem().toString();
                 if(dayData.length()!=1){
                     depDateString = depSpinnerMonth.getSelectedItem().toString() + "-"+ depSpinnerDay.getSelectedItem().toString();
-//                    if(isRoundTrip){
-//                        arrDateString = retSpinnerMonth.getSelectedItem().toString()+"-" + retSpinnerDay.getSelectedItem().toString();
-//                    }
+
                 }else{
                     depDateString = depSpinnerMonth.getSelectedItem().toString() + "-0"+ depSpinnerDay.getSelectedItem().toString();
-//                    if(isRoundTrip){
-//
-//                        arrDateString = retSpinnerMonth.getSelectedItem().toString()+"-0" + retSpinnerDay.getSelectedItem().toString();
-//                    }
+
                 }
                 updateJson();
-//                mybookaddButton.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//
-//                    }
-//                });
+
                 myFlightsSpinner.setAdapter(myAdapter);
             }
         });
