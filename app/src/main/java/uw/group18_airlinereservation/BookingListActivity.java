@@ -53,12 +53,12 @@ public class BookingListActivity extends AppCompatActivity {
          StrictMode.setThreadPolicy((new StrictMode.ThreadPolicy.Builder().permitNetwork().build()));
         //RETRIEVE DATA
         getData();
-        if(myJsonData.length>=1){
+        if(myJsonData != null && myJsonData.length>=1){
             myBookingAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myJsonData );
             listviewofBookings.setAdapter(myBookingAdapter);
         }else{
             // if the user has no booking then display
-            Toast.makeText(this," You have no booking \n You have not booked a flight!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Booking list empty, \nYou have not booked a flight yet!", Toast.LENGTH_LONG).show();
         }
 
     }
