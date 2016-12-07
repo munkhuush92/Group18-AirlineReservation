@@ -83,15 +83,16 @@ public class LoginActivity extends AppCompatActivity {
                 if(!json.has("loggedin")) {
                     Passenger.setValues(json.getString("PassID"),
                             json.getString("Email"), json.getString("Fname"),
-                            json.getString("Lname"));
+                            json.getString("Lname"), json.getString("Cellphone"),
+                            json.getString("Address"));
                     Passenger myPassenger = Passenger.getPassengerObject();
                     loggedIn = true;
                 } else {
                     loggedIn = false;
                 }
             } catch (JSONException e) {
-                Toast.makeText(getApplicationContext(), "Unable to parse JSON", Toast.LENGTH_LONG)
-                        .show();
+                Toast.makeText(getApplicationContext(), "Unable to parse JSON",
+                        Toast.LENGTH_LONG).show();
             }
         }
     }

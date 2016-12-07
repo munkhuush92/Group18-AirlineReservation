@@ -8,21 +8,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    /** A button for directing to Booking layout*/
-     Button bookButton;
 
     private TextView myLoginStatus; //displays who you're logged in as
 
 
     public void init(){
-        bookButton = (Button) findViewById(R.id.bookButton);
-        bookButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent initialize = new Intent(MainActivity.this, booking.class);
-                startActivity(initialize);
-            }
-        });
         myLoginStatus = (TextView) findViewById(R.id.loginStatus);
     }
 
@@ -39,6 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void bookFlightButtonPress(View v) {
         Intent initialize = new Intent(MainActivity.this, BookingActivity.class);
+        startActivity(initialize);
+    }
+
+    public void viewTripsButtonPress(View v) {
+        Intent initialize = new Intent(MainActivity.this, BookingListActivity.class);
+        startActivity(initialize);
+    }
+
+    public void viewProfileButtonPress(View v) {
+        Intent initialize = new Intent(MainActivity.this, ProfileActivity.class);
         startActivity(initialize);
     }
 }

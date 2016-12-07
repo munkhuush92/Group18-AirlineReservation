@@ -10,6 +10,8 @@ public class Passenger {
     public String myEmail = "NOT SET";
     public String myFirstName = "NOT SET";
     public String myLastName = "NOT SET";
+    public String myCellphone = "NOT SET";
+    public String myAddress = "NOT SET";
 
     /**
      * private constructor of passenger
@@ -17,11 +19,15 @@ public class Passenger {
     private Passenger(){
     }
 
-    public static void setValues(String thePassID, String theEmail, String theFirstName, String theLastName) {
+    public static void setValues(String thePassID, String theEmail,
+                                 String theFirstName, String theLastName,
+                                 String theCellphone, String theAddress) {
         instance.myPassID = thePassID;
         instance.myEmail = theEmail;
         instance.myFirstName = theFirstName;
         instance.myLastName = theLastName;
+        instance.myCellphone = theCellphone;
+        instance.myAddress = theAddress;
     }
 
     public static Passenger getPassengerObject() {
@@ -29,7 +35,7 @@ public class Passenger {
     }
 
     /**
-     * get username
+     * get passenger ID
      * @return String PassID
      */
     String getPassID () { return myPassID; }
@@ -47,8 +53,20 @@ public class Passenger {
     String getFirstName(){ return myFirstName;  }
 
     /**
-     * get email
+     * get last name
      * @return String LastName
      */
     String getLastName(){ return myLastName;  }
+
+    /**
+     * get cellphone
+     * @return String myCellphone
+     */
+    String getCellphone(){ return myCellphone;  }
+
+    /**
+     * get address
+     * @return String myAddress
+     */
+    String getAddress(){ return myAddress;  }
 }

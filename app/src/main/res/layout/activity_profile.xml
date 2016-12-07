@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_registration"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="uw.group18_airlinereservation.LoginActivity">
+    <LinearLayout style="@style/LinearLayoutStyle">
+        <TextView
+            style="@style/DescriptorTextStyle"
+            android:textSize="20dp"
+            android:text="First Name: " />
+        <TextView
+            style="@style/DescriptorTextStyle"
+            android:textSize="20dp"
+            android:id="@+id/firstNameField"/>
+    </LinearLayout>
+    <LinearLayout style="@style/LinearLayoutStyle">
+        <TextView
+            style="@style/DescriptorTextStyle"
+            android:textSize="20dp"
+            android:text="Last Name: " />
+        <TextView
+            style="@style/DescriptorTextStyle"
+            android:textSize="20dp"
+            android:id="@+id/lastNameField" />
+    </LinearLayout>
+    <LinearLayout style="@style/LinearLayoutStyle">
+        <TextView
+            style="@style/DescriptorTextStyle"
+            android:textSize="20dp"
+            android:text="Address: " />
+        <EditText
+            style="@style/EditInformationStyle"
+            android:textSize="20dp"
+            android:id="@+id/addressField"
+            android:maxLength="30"/> <!-- Max size of this field??? -->
+    </LinearLayout>
+    <LinearLayout style="@style/LinearLayoutStyle">
+        <TextView
+            style="@style/DescriptorTextStyle"
+            android:textSize="20dp"
+            android:text="Cellphone: " />
+        <EditText
+            style="@style/EditInformationStyle"
+            android:textSize="20dp"
+            android:id="@+id/cellphoneField"
+            android:maxLength="30"/> <!-- Max size of this field??? -->
+    </LinearLayout>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <Button
+        style="@style/clear_button"
+        android:text="Update Information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="updatePassengerInfoButtonPress"/>
+</LinearLayout>

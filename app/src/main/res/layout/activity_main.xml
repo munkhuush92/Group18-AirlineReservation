@@ -32,31 +32,20 @@
         android:layout_width="1dp"
         android:layout_height="30dp"/>
     <Button
-        style="@style/clear_button"
-        android:text="Book Flight"
+        style="@style/uw_button"
+        android:id="@+id/mytripButton"
+        android:text="My trips"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bookButton" />
+        android:onClick="viewTripsButtonPress" />
     <Space
         android:layout_width="1dp"
         android:layout_height="30dp"/>
     <Button
         style="@style/uw_button"
-        android:text="My trip"
+        android:id="@+id/profileButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mytripButton" />
-    <Space
-        android:layout_width="1dp"
-        android:layout_height="30dp"/>
-    <Button
-        style="@style/uw_button"
-        android:text="Flight Status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/fstatusButton" />
-
-
-
-
+        android:text="My Profile"
+        android:onClick="viewProfileButtonPress"/>
 </LinearLayout>
