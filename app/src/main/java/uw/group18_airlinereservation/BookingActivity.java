@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,9 +29,11 @@ public class BookingActivity extends AppCompatActivity {
             "http://students.washington.edu/adi1996/airline.php?cmd=all_flights";
     private Spinner myFlightSpinner;
     private TextView myPriceField;
+    private EditText myMealPlanField;
 
     private List<Flight> myFlightArray = new ArrayList<>();
     private boolean getFlights = true;
+    //TODO Round trips!
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class BookingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_booking);
         myFlightSpinner = (Spinner) findViewById(R.id.flight_spinner);
         myPriceField = (TextView) findViewById(R.id.priceField);
+        myMealPlanField = (EditText) findViewById(R.id.mealPlanField);
         populateSpinner();
         myFlightSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -57,8 +61,14 @@ public class BookingActivity extends AppCompatActivity {
     }
 
     public void completeReservationButtonPress(View v) {
-        Toast.makeText(getApplicationContext(), "Not yet implemented!", Toast.LENGTH_LONG)
-                .show();
+        String mealPlan = myMealPlanField.getText().toString();
+        if(mealPlan.length() >= 1) {
+            Flight chosenFlight = myFlightArray.get(myFlightSpinner.getSelectedItemPosition());
+
+        } else {
+            Toast.makeText(getApplicationContext(), "Please choose a meal.", Toast.LENGTH_LONG)
+                    .show();
+        }
     }
 
     /**
@@ -77,6 +87,7 @@ public class BookingActivity extends AppCompatActivity {
                         JSONObject aFlight = flights.getJSONObject(i);
                         myFlightArray.add(new Flight(aFlight.getString("airplanename"),
                                                     aFlight.getString("price"),
+                                                    aFlight.getString("id"),
                                                     aFlight.getString("dep"),
                                                     aFlight.getString("deptime"),
                                                     aFlight.getString("arr"),
@@ -89,7 +100,7 @@ public class BookingActivity extends AppCompatActivity {
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     myFlightSpinner.setAdapter(adapter);
 
-                    myPriceField.setText(myFlightArray.get(0).getPrice());
+                    myPriceField.setText("$" + myFlightArray.get(0).getPrice());
 
                     getFlights = false;
                 } else {

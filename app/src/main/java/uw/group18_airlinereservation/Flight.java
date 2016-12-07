@@ -11,9 +11,10 @@ public class Flight {
     private String myArrivalPoint;
     private String myArrivalTime;
     private String myPrice;
+    private String myID;
     //need id!
 
-    public Flight(String theAirplaneName, String thePrice,
+    public Flight(String theAirplaneName, String thePrice, String theID,
                   String theDeparturePoint, String theDepartureTime,
                   String theArrivalPoint, String theArrivalTime) {
         myAirplaneName = theAirplaneName;
@@ -21,7 +22,8 @@ public class Flight {
         myDepartureTime = theDepartureTime;
         myArrivalPoint = theArrivalPoint;
         myArrivalTime = theArrivalTime;
-        myPrice = "$" + thePrice;
+        myPrice = thePrice;
+        myID = theID;
     }
 
     public String getAirplaneName() {
