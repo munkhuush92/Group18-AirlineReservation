@@ -27,6 +27,8 @@ public class BookingActivity extends AppCompatActivity {
 
     private final String FLIGHT_URL =
             "http://students.washington.edu/adi1996/airline.php?cmd=all_flights";
+    private final String BOOK_URL =
+            "http://students.washington.edu/adi1996/airline.php?cmd=book_flight";
     private Spinner myFlightSpinner;
     private TextView myPriceField;
     private EditText myMealPlanField;
@@ -57,14 +59,18 @@ public class BookingActivity extends AppCompatActivity {
     }
 
     private void populateSpinner() {
-        new RetrieveFlightsTask().execute(FLIGHT_URL);
+        new BookingTask().execute(FLIGHT_URL);
     }
 
     public void completeReservationButtonPress(View v) {
         String mealPlan = myMealPlanField.getText().toString();
         if(mealPlan.length() >= 1) {
+            //&MealOption=apples&Price=80.21
+            Passenger aPassenger = Passenger.getPassengerObject();
             Flight chosenFlight = myFlightArray.get(myFlightSpinner.getSelectedItemPosition());
-
+            String theURL = BOOK_URL + "&PassID=" + aPassenger.getPassID() + "&MealOption=" + mealPlan +
+                    "&FlightID=" + chosenFlight.getFlightID() + "&Price=" + chosenFlight.getPrice();
+            new BookingTask().execute(theURL);
         } else {
             Toast.makeText(getApplicationContext(), "Please choose a meal.", Toast.LENGTH_LONG)
                     .show();
@@ -104,7 +110,22 @@ public class BookingActivity extends AppCompatActivity {
 
                     getFlights = false;
                 } else {
-
+                    JSONObject status = new JSONObject(jsonString);
+                    if(status.has("ERROR")) {
+                        Toast.makeText(getApplicationContext(), status.get("ERROR").toString(),
+                                Toast.LENGTH_LONG).show();
+                    } else {
+                        if(status.getBoolean("success")) {
+                            Toast.makeText(getApplicationContext(), "Flight booked!",
+                                    Toast.LENGTH_LONG).show();
+                            myMealPlanField.setText("");
+                            getFlights = true;
+                            populateSpinner();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Failed to book flight",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
                 }
             } catch (JSONException e) {
                 Toast.makeText(getApplicationContext(), "Unable to parse JSON", Toast.LENGTH_LONG)
@@ -113,7 +134,7 @@ public class BookingActivity extends AppCompatActivity {
         }
     }
 
-    private class RetrieveFlightsTask extends AsyncTask<String, Void, String> {
+    private class BookingTask extends AsyncTask<String, Void, String> {
 
         /**
          * perform downloading username and password in the background

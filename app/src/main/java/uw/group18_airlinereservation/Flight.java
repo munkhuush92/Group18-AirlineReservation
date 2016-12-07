@@ -50,8 +50,10 @@ public class Flight {
         return myPrice;
     }
 
+    public String getFlightID() { return myID; }
+
     @Override
     public String toString() {
-        return myDepartureTime + ": " + myDeparturePoint + " to " + myArrivalPoint;
+        return myDeparturePoint + " to " + myArrivalPoint + " at " + myDepartureTime;
     }
 }
