@@ -18,8 +18,10 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,12 +70,18 @@ public class BookingActivity extends AppCompatActivity {
             //&MealOption=apples&Price=80.21
             Passenger aPassenger = Passenger.getPassengerObject();
             Flight chosenFlight = myFlightArray.get(myFlightSpinner.getSelectedItemPosition());
-            String theURL = BOOK_URL + "&PassID=" + aPassenger.getPassID() + "&MealOption=" + mealPlan +
-                    "&FlightID=" + chosenFlight.getFlightID() + "&Price=" + chosenFlight.getPrice();
+            String theURL = "";
+            try {
+                theURL = BOOK_URL + "&PassID=" + aPassenger.getPassID() + "&MealOption=" + URLEncoder.encode(mealPlan, "UTF-8") +
+                        "&FlightID=" + chosenFlight.getFlightID() + "&Price=" + chosenFlight.getPrice();
+            } catch (UnsupportedEncodingException e) {
+                Toast.makeText(getApplicationContext(), "Encoding exception when preparing input for query",
+                        Toast.LENGTH_LONG).show();
+            }
             new BookingTask().execute(theURL);
         } else {
-            Toast.makeText(getApplicationContext(), "Please choose a meal.", Toast.LENGTH_LONG)
-                    .show();
+            Toast.makeText(getApplicationContext(), "Please choose a meal.",
+                    Toast.LENGTH_LONG).show();
         }
     }
 

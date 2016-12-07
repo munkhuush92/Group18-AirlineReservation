@@ -19,6 +19,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.Date;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -70,16 +71,22 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private String buildURL() {
-        String result = REGISTER + "&Email=" + myEmail.getText().toString() +
-                "&Password=" + myPassword.getText().toString() +
-                "&Fname=" + myFirstName.getText().toString() +
-                "&Lname=" + myLastName.getText().toString() +
-                "&Address=" + myAddress.getText().toString() +
-                "&Citizenship=" + myCitizenship.getText().toString() +
-                "&DateOfBirth=" + myBirthDate.getText().toString() +
-                "&Gender=" + myGenderSpinner.getSelectedItem().toString();
-        if(myCellPhone.getText().toString().length() >= 1) {
-            result += "&cellphone=" + myCellPhone.getText().toString();
+        String result = "";
+        try {
+            result = REGISTER + "&Email=" + URLEncoder.encode(myEmail.getText().toString(), "UTF-8") +
+                    "&Password=" + URLEncoder.encode(myPassword.getText().toString(), "UTF-8") +
+                    "&Fname=" + URLEncoder.encode(myFirstName.getText().toString(), "UTF-8") +
+                    "&Lname=" + URLEncoder.encode(myLastName.getText().toString(), "UTF-8") +
+                    "&Address=" + URLEncoder.encode(myAddress.getText().toString(), "UTF-8") +
+                    "&Citizenship=" + URLEncoder.encode(myCitizenship.getText().toString(), "UTF-8") +
+                    "&DateOfBirth=" + myBirthDate.getText().toString() +
+                    "&Gender=" + myGenderSpinner.getSelectedItem().toString();
+            if(myCellPhone.getText().toString().length() >= 1) {
+                result += "&cellphone=" + URLEncoder.encode(myCellPhone.getText().toString(), "UTF-8");
+            }
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "There was an error preparing the URL",
+                    Toast.LENGTH_LONG).show();
         }
         return result;
     }
