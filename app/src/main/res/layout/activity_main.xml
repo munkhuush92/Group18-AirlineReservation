@@ -31,7 +31,8 @@
         android:text="Search A Flight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mySearchButton" />
+        android:id="@+id/mySearchButton"
+        android:onClick="searchFlightButtonPress"/>
     <Space
         android:layout_width="1dp"
         android:layout_height="30dp"/>

@@ -59,9 +59,11 @@ public class ProfileActivity extends AppCompatActivity {
         try {
             if (!myCellphoneField.getText().toString().equals(myPassenger.getCellphone())) {
                 theURL += "&Cellphone=" + URLEncoder.encode(myCellphoneField.getText().toString(), "UTF-8");
+                myPassenger.setCellphone(myCellphoneField.getText().toString());
             }
             if (!myAddressField.getText().toString().equals(myPassenger.getAddress())) {
                 theURL += "&Address=" + URLEncoder.encode(myAddressField.getText().toString(), "UTF-8");
+                myPassenger.setAddress(myAddressField.getText().toString());
             }
         } catch (UnsupportedEncodingException e) {
             Toast.makeText(getApplicationContext(),

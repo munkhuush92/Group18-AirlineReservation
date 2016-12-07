@@ -41,4 +41,9 @@ public class MainActivity extends AppCompatActivity {
         Intent initialize = new Intent(MainActivity.this, ProfileActivity.class);
         startActivity(initialize);
     }
+
+    public void searchFlightButtonPress(View v) {
+        Intent initialize = new Intent(MainActivity.this, booking.class);
+        startActivity(initialize);
+    }
 }

@@ -38,35 +38,48 @@ public class Passenger {
      * get passenger ID
      * @return String PassID
      */
-    String getPassID () { return myPassID; }
+    public String getPassID () { return myPassID; }
 
     /**
      * get email
      * @return String Email
      */
-    String getEmail(){ return myEmail;  }
+    public String getEmail(){ return myEmail;  }
 
     /**
      * get first name
      * @return String FirstName
      */
-    String getFirstName(){ return myFirstName;  }
+    public String getFirstName(){ return myFirstName;  }
 
     /**
      * get last name
      * @return String LastName
      */
-    String getLastName(){ return myLastName;  }
+    public String getLastName(){ return myLastName;  }
 
     /**
      * get cellphone
      * @return String myCellphone
      */
-    String getCellphone(){ return myCellphone;  }
+    public String getCellphone(){ return myCellphone;  }
 
     /**
      * get address
      * @return String myAddress
      */
-    String getAddress(){ return myAddress;  }
+    public String getAddress(){ return myAddress;  }
+
+    /**
+     * set cellphone
+     * @param  theCellphone
+     */
+    public void setCellphone(String theCellphone) { myCellphone = theCellphone; }
+
+    /**
+     * set address
+     * @param theAddress
+     */
+    public void setAddress(String theAddress) { myAddress = theAddress; }
+
 }
