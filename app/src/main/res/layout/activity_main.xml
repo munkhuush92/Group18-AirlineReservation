@@ -54,4 +54,13 @@
         android:layout_height="wrap_content"
         android:text="My Profile"
         android:onClick="viewProfileButtonPress"/>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Project by: Austin Ingraham and Mike Ganbold"/>
 </LinearLayout>
